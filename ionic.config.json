@@ -1,0 +1,7 @@
+{
+  "name": "revukangaroo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
