@@ -2,15 +2,21 @@
   <div id="container">
     <div class="logo"><img src="../../assets/logo.png" alt=""></div>
     <div class="form_login">
-      <ion-list>        
-        <ion-item>
-          <ion-textarea placeholder="" value="Thank you for choosing [[profile_name]]. To assist us in growing our business, please leave us a review using this link: [[review_url]] Thank you."></ion-textarea>
-        </ion-item>
-        <ion-item class="check_item"><ion-checkbox></ion-checkbox>* The recipient has given permission to 
-          receive SMS communications. </ion-item>
-        <ion-item><ion-input placeholder="Enter mobile number: 7021234567"></ion-input></ion-item>
-        <ion-item><ion-button color="secondary" routerLink="/thank-you">Send</ion-button></ion-item>
-      </ion-list>
+      <form  #form="ngForm" (ngSubmit)="sendMessage(form)">
+        <ion-list>   
+          <ion-item>
+            <ion-textarea placeholder="" value="{{ templates }}"></ion-textarea>
+          </ion-item>
+          <ion-item class="check_item"><ion-checkbox required  ></ion-checkbox>* The recipient has given permission to 
+            receive SMS communications. </ion-item> 
+          <ion-item><ion-input name="phone" required ngModel placeholder="Enter mobile number: 7021234567"></ion-input></ion-item>
+          <ion-item>
+            <ion-button color="secondary" size="large" type="submit" [disabled]="form.invalid" expand="block">Send</ion-button>
+            <!-- <ion-button color="secondary" routerLink="/thank-you">Send</ion-button> -->
+          </ion-item>
+        </ion-list>
+      </form>
+      
     </div>
   </div>
 </ion-content>
