@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { ToastController, LoadingController } from "@ionic/angular";
+import { ToastController, LoadingController, MenuController } from "@ionic/angular";
 import { ActivatedRoute, Router } from "@angular/router";
 const API_STORAGE_KEY = "REVU";
 const API_URL = "https://staging.revukangaroo.com/api";
@@ -12,6 +12,7 @@ const API_URL = "https://staging.revukangaroo.com/api";
 })
 export class MessagePage implements OnInit {
   constructor(
+    private menu: MenuController,
     private httpClient: HttpClient,
     public toastController: ToastController,
     public loadingCtrl: LoadingController,
@@ -44,6 +45,13 @@ export class MessagePage implements OnInit {
         }
       });
   }
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+
 
 
   async presentToast(msg) {
