@@ -4,7 +4,7 @@ import { ToastController, LoadingController } from "@ionic/angular";
 import { ActivatedRoute, Router } from '@angular/router';
 
 const TOKEN_KEY = "authToken";
-const API_URL = "http://revukangaroo.local.com/api";
+const API_URL = "https://staging.revukangaroo.com/api";
 
 @Component({
   selector: "app-home",

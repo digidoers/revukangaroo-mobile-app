@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { ToastController, LoadingController } from "@ionic/angular";
 import { ActivatedRoute, Router } from "@angular/router";
 const API_STORAGE_KEY = "REVU";
-const API_URL = "http://revukangaroo.local.com/api";
+const API_URL = "https://staging.revukangaroo.com/api";
 
 @Component({
   selector: "app-message",
@@ -28,7 +28,7 @@ export class MessagePage implements OnInit {
       .toPromise()
       .then((res) => {
         this.dismissLoader();
-        this.presentToast("Error : " + res['msg']);
+        // this.presentToast("Error : " + res['msg']);
         console.log("res template list", res);
         if (res['status']) {
           if(res['data'].length > 0){
