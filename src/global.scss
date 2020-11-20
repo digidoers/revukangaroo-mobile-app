@@ -97,8 +97,9 @@ p.thanx_text{
             &.check_item{
                 font-size: 14px;
                 font-weight: 300;
-                color: #fff;
+                color: #fff !important;
                 font-family: 'Open Sans', sans-serif;
+                
             }
             ion-textarea{
                 margin-top: 0px;
@@ -111,5 +112,58 @@ p.thanx_text{
                 }
             }
         }
+    }
+}
+
+.form_login ion-list ion-item.ion-focusable.ion-invalid,
+.form_login ion-list ion-item.ion-focusable.ion-valid {
+    --highlight-background: transparent;
+}
+.form_login ion-list ion-item.no-ripple{
+    background-color: transparent;
+    box-shadow: none;
+    --ripple-color: transparent;
+    --background-activated: transparent;
+    --background-activated-opacity:transparent;
+    --background-focused: transparent;
+    --background-focused-opacity:transparent;
+    --background-hover  : transparent;
+    --background-hover-opacity  :transparent;
+    -webkit-tap-highlight-color: #fff;
+    --color:#fff;
+}
+.box-text {
+    background: #fff;
+    width: 100%;
+    padding: 14px;
+    border-radius: 4px;
+    margin: 70px 0px 5px;
+    min-height: 100px;
+}
+.btn_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 120px 0px 0px;
+    button{
+        border: none;
+        background: #39c6ef;
+        color: #fff;
+        font-size: 16px;
+        display: inline-block;
+        text-transform: uppercase;
+        padding: 12px 20px;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: 0.4s all ease;
+    }
+    button:focus{
+        background: #000;
+        outline: none;
+        border: none;
+    }
+    button.msg_send{
+        margin-right: 15px;
     }
 }
