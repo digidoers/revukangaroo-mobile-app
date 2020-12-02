@@ -16,7 +16,15 @@
                 --background: #fff;
                 height: 18px;
                 --border-radius: 0px;
-            }           
+            }  
+            p.msg_sent_text{
+                font-size: 24px;
+                font-weight: 600;
+                text-align: center;
+                margin: 20px 0px 0px;
+                display: block;
+                width: 100%;
+            }
         }
     }
 }

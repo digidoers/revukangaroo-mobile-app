@@ -4,6 +4,9 @@
     <div class="form_login">
       <form  #form="ngForm" (ngSubmit)="sendMessage(form)">
         <ion-list>   
+          <ion-item class="no-ripple">
+              <p class="msg_sent_text">Message to be sent:</p>
+          </ion-item>
           <ion-item>
             <div class="box-text">{{ templates }}</div>
              <!-- <ion-textarea placeholder="" value=""></ion-textarea> -->
