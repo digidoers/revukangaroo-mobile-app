@@ -8,7 +8,7 @@
             <div class="box-text">{{ templates }}</div>
              <!-- <ion-textarea placeholder="" value=""></ion-textarea> -->
           </ion-item>
-          <ion-item class="check_item no-ripple"><ion-checkbox required  ></ion-checkbox>* The recipient has given permission to 
+          <ion-item class="check_item no-ripple"><ion-checkbox required [(ngModel)]="t_c" value="1" name="t_c" ></ion-checkbox>* The recipient has given permission to 
             receive SMS communications. </ion-item> 
           <ion-item><ion-input name="phone" required ngModel placeholder="Enter mobile number: 7021234567"></ion-input></ion-item>
           <ion-item>

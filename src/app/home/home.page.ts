@@ -23,7 +23,13 @@ export class HomePage {
     public loadingCtrl: LoadingController,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    const currentUser = localStorage.getItem("TOKEN_KEY"); 
+    if(currentUser){
+      this.router.navigate(['message']);
+    }
+    
+  }
 
   async presentToast(msg) {
     const toast = await this.toastController.create({
@@ -54,6 +60,7 @@ export class HomePage {
   login(form) {
     this.showLoader();
     console.log("form ", form.value);
+    // return true;
     this.httpClient
       .post(`${API_URL}/login`, {
         email: form.value["email"],
@@ -71,5 +78,14 @@ export class HomePage {
           this.presentToast("Error : " + res['msg']);
         }
       });
+  }
+
+  saveUserLogin(data){
+    data = JSON.stringify(data);
+    localStorage.setItem(`revu_remeber_me`, data);
+  }
+
+  getUserLogin() {
+    localStorage.getItem('revu_remeber_me');
   }
 }

@@ -11,13 +11,13 @@
           <ion-item>
             <ion-input type="password" name="password" ngModel required  placeholder="Password"></ion-input>
           </ion-item>
-          
+          <ion-item class="check_item no-ripple"><ion-checkbox name="remeber_me" [(ngModel)]="remeber_me" value="1"></ion-checkbox>Remember Login</ion-item>
+     
           <ion-item>
             <ion-button color="secondary" size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
             <!-- <ion-button color="secondary" routerLink="/message">Login</ion-button> -->
           </ion-item>
-          <ion-item class="check_item no-ripple"><ion-checkbox name="remeber_me" ngModel value="1"></ion-checkbox>Remember Login</ion-item>
-        </ion-list>
+     </ion-list>
       </form>
       
     </div>

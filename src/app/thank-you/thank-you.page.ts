@@ -9,7 +9,10 @@ export class ThankYouPage implements OnInit {
 
   constructor() { }
 
+  public mnumber: any;
+
   ngOnInit() {
+    this.mnumber = localStorage.getItem("mnumber");
   }
 
 }

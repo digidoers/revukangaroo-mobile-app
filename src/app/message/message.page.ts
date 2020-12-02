@@ -37,13 +37,20 @@ export class MessagePage implements OnInit {
             console.log("templates", this.templates);
           }
         } else {
+          this.removeStorage();
           if(res['is_verify']){
             this.presentToast("Error : " + res['msg']);
           } else {
+            this.removeStorage();
             this.router.navigate(['home']);
           }
         }
       });
+      
+  }
+
+  initializeApp() {
+    alert("initializeApp");
   }
 
   openFirst() {
@@ -92,6 +99,10 @@ export class MessagePage implements OnInit {
     }
   }
 
+  removeStorage(){
+    localStorage.removeItem('TOKEN_KEY');
+  }
+
   sendMessage(form) {
     console.log("send message", form);
     this.showLoader();
@@ -107,15 +118,49 @@ export class MessagePage implements OnInit {
       .then((res) => {
         this.dismissLoader();
         if (res['status']) {
+          localStorage.setItem("mnumber", form.value["phone"]);
+          form.reset();
           //this.presentToast("Success : " + res['msg']);
+          
           this.router.navigate(['thank-you']);
         } else {
           if(res['is_verify']){
             this.presentToast("Error : " + res['msg']);
           } else {
+            this.removeStorage();
             this.router.navigate(['home']);
           }          
         }
       });
   }
+
+  numberOnlyValidation(event: any) {
+    console.log("event", event.target.value);
+    // const pattern = /[0-9,]/; // without ., for integer only
+    // let inputChar = String.fromCharCode(event.which ? event.which : event.keyCode);
+
+    // if (!pattern.test(inputChar)) {
+    //   // invalid character, prevent input
+    //   event.preventDefault();
+    //   return false;
+    // }
+    // return true;
+
+  //   const pattern = /[0-9,]/;
+  //   let inputChar = String.fromCharCode(event.charCode);
+  //  // event.preventDefault();
+  //   return false;
+  //   console.log("inputChar", event.target.value);
+
+  //   if (!pattern.test(inputChar)) {
+  //     // invalid character, prevent input
+      
+  //     alert("invaild");
+  //     //return false;
+  //   } else {
+  //     alert("this is vaild");
+  //     //return true;
+  //   }
+  }
+
 }
